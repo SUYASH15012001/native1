@@ -3,6 +3,7 @@ import { StyleSheet, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard} 
 import Header from './components/Header';
 import TodoItem from './components/TodoItem';
 import AddTodo from './components/AddTodo';
+// import SandBox from './components/SandBox';
 
 export default function App() {
   
@@ -23,8 +24,8 @@ export default function App() {
     if(text.length>3){
       setTodos((prevTodos) => {
         return[
-          ...prevTodos,
-          {text, key: Math.random().toString()}
+          {text, key: Math.random().toString()},
+          ...prevTodos
         ];
       })
     }
@@ -36,6 +37,7 @@ export default function App() {
   }
 
   return (
+    // <SandBox/>
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.container}>
         <Header/>
@@ -63,9 +65,11 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
   },
   content: {
+    flex:1,
     padding: 30
   },
   list: {
+    flex:1,
     marginTop:20
   }
 });
