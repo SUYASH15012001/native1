@@ -1,50 +1,30 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
+import Header from './components/Header';
 
 export default function App() {
-
-  const [people, setPeople] = useState([
-    { name: 'shawn', id: '1' },
-    { name: 'Luigi', id: '2' },
-    { name: 'Mario', id: '3' },
-    { name: 'yoshi', id: '4' },
-    { name: 'Peach', id: '5' },
-    { name: "buom", id: '6' },
-    { name: 'Shank', id: '7' },
-    { name: 'Ritz', id: '8' },
-    { name: "Boom", id: '9' },
-    
+  
+  
+  const [todos, setTodos] = useState([
+    { text: 'buy coffee', key: '1' },
+    { text: 'create an app', key: '2' },
+    { text: 'play on the switch', key: '3' }
   ]);
 
-  const presshandler = (id) => {
-    // console.log(id);
-    setPeople((prevPeople) => {
-      return prevPeople.filter(person => person.id !== id)  
-    })
-    // pretty much same as
-    // let nlist = people.filter(person => person.id !== id);
-    // setPeople(nlist);
-  }
 
   return (
     <View style={styles.container}>
-      <FlatList
-        keyExtractor={ (item) => item.id.toString() }
-        numColumns={2}
-        data={people}
-        renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => presshandler(item.id)}>
-            <Text style={styles.item}> { item.name }</Text>
-          </TouchableOpacity>
-        )}
-      />
-      {/* <ScrollView>
-        {people.map(item => (
-          <View key={item.key}>
-            <Text style={styles.item}> Hello { item.name }</Text>
-          </View>
-        ))}
-      </ScrollView> */}
+      <Header/>
+      <View style={styles.content}>
+        <View style={styles.list}>
+          <FlatList
+            data={todos}
+            renderItem={({item}) => (
+              <Text>{item.text}</Text>
+            )}
+          />
+        </View>
+      </View>
     </View>
   );
 }
@@ -53,16 +33,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingTop: 20,
-    paddingLeft: 20
     // alignItems: 'center',
     // justifyContent: 'center',
   },
-  item: {
-    padding: 30,
-    fontSize: 24,
-    backgroundColor: 'pink',
-    marginTop: 24,
-    marginHorizontal:10
+  content: {
+    padding: 30
+  },
+  list: {
+    marginTop:20
   }
 });
