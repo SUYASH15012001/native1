@@ -11,7 +11,6 @@ export default function App() {
     { text: 'play on the switch', key: '3' }
   ]);
 
-
   return (
     <View style={styles.container}>
       <Header/>
