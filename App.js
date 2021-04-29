@@ -1,20 +1,10 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import Home from './screens/Home';
 
 export default function App() {
 
   return (
-    <View style={styles.container}>
-      <Text>Start Coding</Text>
-    </View>
+    <Home/>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
