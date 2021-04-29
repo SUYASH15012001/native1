@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
 import Header from './components/Header';
 import TodoItem from './components/TodoItem';
+import AddTodo from './components/AddTodo';
 
 export default function App() {
   
@@ -18,17 +19,27 @@ export default function App() {
     })
   }
 
+  const submitHandler = text => {
+    setTodos((prevTodos) => {
+      return[
+        ...prevTodos,
+        {text, key: Math.random().toString()}
+      ];
+    })
+  }
+
   return (
     <View style={styles.container}>
       <Header/>
       <View style={styles.content}>
         <View style={styles.list}>
-          <FlatList
-            data={todos}
-            renderItem={({item}) => (
-              <TodoItem item={item} pressHandler={pressHandler}/>
-            )}
-          />
+          <AddTodo submitHandler={submitHandler} />
+            <FlatList
+              data={todos}
+              renderItem={({item}) => (
+                <TodoItem item={item} pressHandler={pressHandler}/>
+              )}
+            />
         </View>
       </View>
     </View>
