@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, FlatList } from 'react-native'
-import globalStyles from '../styles/global';
+import {globalStyles} from '../styles/global';
 import Card from '../shared/Card';
 
 const Home = (props) => {
