@@ -9,10 +9,10 @@ const { Navigator, Screen } = createStackNavigator();
 const HomeNavigator = () => (
     <Navigator>
         <Screen
-            options={{
-                title:"Ram " //to set title empty else it takes names
-            }}
-            name="HomeComponent" component={Home} />
+            // options={{
+            //     title:"Ram" //to set title empty else it takes names
+            // }}
+            name="Home" component={Home} />
         <Screen name="ReviewDetails" component={ReviewDetails}/>
     </Navigator>
 )
