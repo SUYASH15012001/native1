@@ -2,16 +2,20 @@ import React from 'react';
 // import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import About from '../screens/About';
+import Header from '../shared/Header';
 
 const { Navigator, Screen } = createStackNavigator();
 
 const AboutNavigator = () => (
-    <Navigator screenOptions={{
-        headerStyle: {
-            backgroundColor: '#eee',
-            height: 80
-        },
-        headerTintColor: '#444', //headerTextColor
+    <Navigator screenOptions={(props) => {
+        return {
+            headerStyle: {
+                backgroundColor: '#eee',
+                height: 80
+            },
+            headerTintColor: '#444', //headerTextColor
+            headerTitle: () => <Header navigation={ props.navigation} title='About GameZone'/>
+        }
     }}>
         <Screen
             options={{
