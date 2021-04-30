@@ -3,6 +3,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack'
 import About from '../screens/About';
 import Header from '../shared/Header';
+import {Image} from 'react-native'
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -14,7 +15,12 @@ const AboutNavigator = () => (
                 height: 80
             },
             headerTintColor: '#444', //headerTextColor
-            headerTitle: () => <Header navigation={ props.navigation} title='About GameZone'/>
+            headerTitle: () => <Header navigation={ props.navigation} title='About GameZone'/>,
+            headerBackground: () => (
+                <Image source={require('../assets/game_bg.png')} style={{
+                    height:'100%'
+                }}/>
+            )
         }
     }}>
         <Screen

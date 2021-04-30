@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import Home from '../screens/Home';
 import ReviewDetails from '../screens/ReviewDetails';
 import Header from '../shared/Header';
+import { Image } from 'react-native';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -18,15 +19,17 @@ const HomeNavigator = () => (
         <Screen
             options={({ navigation }) => {
                 return {
-                    title: "GameZone", //to set title empty else it takes names
-                    // headerStyle:{
-                    //     backgroundColor:'#335'
-                    // }, //headerTextColor
+                    title: "GameZone",
                     headerTitle: () => {
                         return (
                             <Header navigation={navigation} title='GameZone'/>
                         )
-                    }
+                    },
+                    headerBackground: () => (
+                        <Image source={require('../assets/game_bg.png')} style={{
+                            height:'100%'
+                        }}/>
+                    )
                 }
             }}
             name="Home" component={Home} />
