@@ -1,12 +1,11 @@
 import React from 'react';
 // import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import Home from '../screens/Home';
-import ReviewDetails from '../screens/ReviewDetails';
+import About from '../screens/About';
 
 const { Navigator, Screen } = createStackNavigator();
 
-const HomeNavigator = () => (
+const AboutNavigator = () => (
     <Navigator screenOptions={{
         headerStyle: {
             backgroundColor: '#eee',
@@ -16,22 +15,12 @@ const HomeNavigator = () => (
     }}>
         <Screen
             options={{
-                title: "GameZone", //to set title empty else it takes names
+                title: "About GameZone", //to set title empty else it takes names
                 // headerStyle:{
                 //     backgroundColor:'#335'
                 // }
             }}
-            name="Home" component={Home} />
-        <Screen
-            options={{
-                title: "",
-                headerStyle:{
-                    backgroundColor:'#eee'
-                }
-            }}
-            name="ReviewDetails"
-            component={ReviewDetails}
-        />
+            name="About" component={About} />
     </Navigator>
 )
 
@@ -40,4 +29,4 @@ const HomeNavigator = () => (
 //         <HomeNavigator/>
 //     </NavigationContainer>
 // )
-export default HomeNavigator;
+export default AboutNavigator;
