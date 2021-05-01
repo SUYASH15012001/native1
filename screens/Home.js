@@ -15,6 +15,15 @@ const Home = (props) => {
         { title: 'Gotta Catch Them All (again)', rating: 4, body: 'lorem ipsum', key: '2' },
         { title: 'Not So "Final" Fantasy', rating: 3, body: 'lorem ipsum', key: '3' },
     ]);
+
+    const addReview = (review) => {
+        review.key = Math.random().toString();
+        setReviews((currReviews) => {
+            return [review, ...currReviews]
+        })
+        setModalOpen(false);
+
+    }
     return (
         <View style={globalStyles.container}>
             <Modal visible={modalOpen}>
@@ -25,7 +34,7 @@ const Home = (props) => {
                         onPress={() => setModalOpen(false)}
                         style={{...styles.modalToggle, ...styles.modalClose}}
                     />
-                    <ReviewForm/>
+                    <ReviewForm addReview={addReview}/>
                 </View>
             </Modal>
 

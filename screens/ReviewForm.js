@@ -9,8 +9,10 @@ const ReviewForm = () => {
         <View style={globalStyles.container}>
             <Formik
                 initialValues={{ title: '', body: '', rating: '' }}
-                onSubmit={(values) => {
-                console.log(values);
+                onSubmit={(values, actions) => {
+                    // console.log(values);
+                    actions.resetForm()
+                    props.addReview(values)
                 }}
             >
                 {(props) => (
