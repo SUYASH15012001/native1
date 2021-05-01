@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, FlatList, Modal } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, FlatList, Modal, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import {globalStyles} from '../styles/global';
 import Card from '../shared/Card';
 import { MaterialIcons } from '@expo/vector-icons'
@@ -27,15 +27,17 @@ const Home = (props) => {
     return (
         <View style={globalStyles.container}>
             <Modal visible={modalOpen}>
-                <View style={styles.modalContent}>
-                    <MaterialIcons
-                        name='close'
-                        size={24}
-                        onPress={() => setModalOpen(false)}
-                        style={{...styles.modalToggle, ...styles.modalClose}}
-                    />
-                    <ReviewForm addReview={addReview}/>
-                </View>
+                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                    <View style={styles.modalContent}>
+                        <MaterialIcons
+                            name='close'
+                            size={24}
+                            onPress={() => setModalOpen(false)}
+                            style={{...styles.modalToggle, ...styles.modalClose}}
+                        />
+                        <ReviewForm addReview={addReview}/>
+                    </View>
+                </TouchableWithoutFeedback>
             </Modal>
 
             <MaterialIcons

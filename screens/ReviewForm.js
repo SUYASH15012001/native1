@@ -4,7 +4,7 @@ import { globalStyles } from '../styles/global';
 import { Formik } from 'formik';
 
 
-const ReviewForm = () => {
+const ReviewForm = (props) => {
     return (
         <View style={globalStyles.container}>
             <Formik
